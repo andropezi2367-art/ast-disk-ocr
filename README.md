@@ -1,7 +1,12 @@
 # AST Disk OCR
 
-Conservative OCR preprocessing and catalog-constrained recognition for printed
-antimicrobial susceptibility testing (AST) disks.
+**English:** Conservative OCR preprocessing and catalog-constrained recognition
+for printed antimicrobial susceptibility testing (AST) disks. It reads the
+antibiotic code and disk content, such as `CIP 5`, from an already located disk.
+
+**中文：** 面向药敏试验纸片的保守型 OCR 模块。它从已经定位的纸片图像中
+识别抗生素代码和纸片含量（例如 `CIP 5`），并通过经审核的药物目录约束结果；
+低置信度或结果歧义时转入人工复核，不强行猜测。
 
 The project accepts an already located disk crop (or a center/radius inside an
 image), normalizes its orientation, reads the printed drug code and disk content,
