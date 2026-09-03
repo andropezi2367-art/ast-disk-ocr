@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ast-disk-ocr"
+version = "0.1.0"
+description = "Conservative OCR and preprocessing for antimicrobial susceptibility test disks"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors = [{ name = "andropezi2367-art" }]
+keywords = ["ocr", "ast", "antimicrobial-susceptibility", "disk-diffusion"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Image Processing",
+]
+dependencies = [
+  "numpy>=1.26,<3",
+  "opencv-python-headless>=4.9,<5",
+]
+
+[project.optional-dependencies]
+rapidocr = ["rapidocr>=3,<4", "onnxruntime>=1.19,<2"]
+dev = ["pytest>=8,<10", "ruff>=0.8,<1"]
+
+[project.scripts]
+ast-disk-ocr = "ast_disk_ocr.cli:main"
+
+[project.urls]
+Repository = "https://github.com/andropezi2367-art/ast-disk-ocr"
+Issues = "https://github.com/andropezi2367-art/ast-disk-ocr/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ast_disk_ocr"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
